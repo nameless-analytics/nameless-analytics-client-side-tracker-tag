@@ -4,11 +4,11 @@ The Nameless Analytics Client-side Tracker Tag is a highly customizable GTM cust
 
 For an overview of how Nameless Analytics works [start from here](https://github.com/nameless-analytics/nameless-analytics/#high-level-data-flow).
 
-Tag:
-* [Nameless Analytics Client-side Tracker Tag UI](#nameless-analytics-client-side-tracker-tag-ui)
 
-Data:
-* Event data
+
+## TOC
+* [Nameless Analytics Client-side Tracker Tag UI](#nameless-analytics-client-side-tracker-tag-ui)
+* [Event data](#event-data)
   * [Event name](#event-name)
     * [Standard event name](#standard-event-name)
     * [Custom event name](#custom-event-name)
@@ -16,17 +16,14 @@ Data:
     * [Add/override event level parameters](#addoverride-event-level-parameters)
     * [Remove event level parameters](#remove-event-level-parameters)
     * [Add event level parameters from dataLayer](#add-event-parameters-from-datalayer)
-
-Settings:
-* Configuration variable settings
+* [Configuration variable settings](#configuration-variable-settings)
   * [Configuration variable](#configuration-variable)
-* Advanced settings
+* [Advanced settings](#advanced-settings)
   * [Add ecommerce data from dataLayer](#add-ecommerce-data-from-datalayer)
   * [Disable logs in JavaScript console for this event](#disable-logs-in-javascript-console-for-this-event)
-
-Execution messages:
-* [Success messages](#success-messages) 
-* [Error messages](#error-messages) 
+* [Execution messages](#execution-messages)
+  * [Success messages](#success-messages) 
+  * [Error messages](#error-messages) 
 
 
 
