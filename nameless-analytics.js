@@ -63,17 +63,6 @@ function build_payload(full_endpoint, payload, data, enable_logs, add_page_statu
 function send_requests(full_endpoint, payload, data, enable_logs, resolve, reject) {
   if (enable_logs) console.log(payload.event_name, '>', 'SENDING REQUEST');
 
-  if (full_endpoint.split('/')[2] === 'undefined') {
-    if (enable_logs) { console.log(payload.event_name, '>', ' 🔴 This website is not authorized to send Nameless Analytics requests'); }
-
-    if (enable_logs) { console.log(payload.event_name, '>', 'REQUEST STATUS'); }
-    if (enable_logs) { console.log(payload.event_name, '>', '  🔴 Request aborted'); }
-
-    data.gtmOnSuccess();
-    reject(new Error('Unauthorized'));
-    return
-  }
-
   fetch(full_endpoint, {
     method: 'POST',
     credentials: 'include',
@@ -84,7 +73,6 @@ function send_requests(full_endpoint, payload, data, enable_logs, resolve, rejec
     .then(res => res.json())
     .then(response_json => {
       if (response_json.status_code === 200) {
-        // if(enable_logs){console.log(payload.event_name, '>', '  👉 Event name: ' + response_json.data.event_name);}
         if (enable_logs) { console.log(payload.event_name, '>', '  👉 Payload data: ', response_json.data); }
 
         if (enable_logs) { console.log(payload.event_name, '>', 'REQUEST STATUS'); }
@@ -96,18 +84,17 @@ function send_requests(full_endpoint, payload, data, enable_logs, resolve, rejec
         if (enable_logs) { console.log(payload.event_name, '>  ', response_json.response); }
 
         if (enable_logs) { console.log(payload.event_name, '>', 'REQUEST STATUS'); }
-        if (enable_logs) { console.log(payload.event_name, '>', '  🔴 Request aborted'); }
+        if (enable_logs) { console.log(payload.event_name, '>', '  🔴 Request refused'); }
 
         data.gtmOnSuccess();
         resolve(response_json.data);
       }
     })
     .catch(error => {
-      if (enable_logs) console.log(payload.event_name, '>', '  🔴 Error while fetch:', full_endpoint);
       if (enable_logs) console.log(payload.event_name, '>', '  🔴', error);
 
       if (enable_logs) { console.log(payload.event_name, '>', 'REQUEST STATUS'); }
-      if (enable_logs) { console.log(payload.event_name, '>', '  🔴 Request aborted'); }
+      if (enable_logs) { console.log(payload.event_name, '>', '  🔴 Request not sent successfully'); }
 
       data.gtmOnSuccess();
       reject(error);
@@ -234,21 +221,24 @@ function set_cross_domain_listener(full_endpoint, cross_domain_domains, respect_
           popupWindow = window.open("about:blank", "_blank");
         }
 
-        get_user_data(saved_full_endpoint, { event_name: 'get_user_data', event_origin: 'Website' }, enable_logs)
-          .then(user_data => {
-            const client_id = user_data.client_id;
-            const session_id = user_data.session_id;
-
+        get_user_data(saved_full_endpoint, { event_name: 'get_user_data', event_origin: 'Website' })
+          .then(response_json => {
             if (enable_logs) { console.log('cross-domain > NAMELESS ANALYTICS'); }
             if (enable_logs) { console.log('cross-domain > ASK USER DATA'); }
+
+            const user_data = response_json.data;
+
             if (enable_logs) { console.log('cross-domain >   👉 User data: ', user_data) }
             if (enable_logs) { console.log('cross-domain > CHECK USER DATA'); }
 
-            if (session_id !== 'undefined') {
+            const client_id = user_data.client_id;
+            const session_id = user_data.session_id;
+
+            if (client_id && client_id != 'undefined' && session_id && session_id != 'undefined') {
               if (enable_logs) { console.log('cross-domain >   🟢 Valid user data. Cross-domain URL link decoration will be applied') }
               link_url.searchParams.set('na_id', session_id);
             } else {
-              if (enable_logs) { console.log('cross-domain >   🔴 Invalid user data. No cross-domain URL link decoration will be applied') }
+              if (enable_logs) { console.log('cross-domain > ', response_json.response) }
             }
 
             if (enable_logs) { console.log('cross-domain >   👉 Redirect to: ' + link_url.href) }
@@ -260,7 +250,12 @@ function set_cross_domain_listener(full_endpoint, cross_domain_domains, respect_
             }
           })
           .catch(error => {
-            console.error('cross-domain >   🔴 Error while fetch user data: ' + error);
+            if (enable_logs) { console.log('cross-domain > NAMELESS ANALYTICS'); }
+            if (enable_logs) { console.log('cross-domain > ASK USER DATA'); }
+
+            console.log('cross-domain >   🔴 Error while fetch user data: ' + error);
+            if (enable_logs) { console.log('cross-domain >   👉 Redirect to: ' + original_href) }
+
             if (popupWindow) {
               popupWindow.location.href = original_href;
             } else {
@@ -305,7 +300,7 @@ function get_last_consent_values() {
 
 // USER DATA
 // Get user data from GTM Server-side
-function get_user_data(saved_full_endpoint, payload, enable_logs) {
+function get_user_data(saved_full_endpoint, payload) {
   if (saved_full_endpoint.split('/')[2].split('.')[1] !== 'undefined') {
     return fetch(saved_full_endpoint, {
       method: 'POST',
@@ -316,11 +311,7 @@ function get_user_data(saved_full_endpoint, payload, enable_logs) {
     })
       .then(response => response.json())
       .then(response_json => {
-        return response_json.data;
+        return response_json;
       })
-      .catch(error => {
-        if (enable_logs) { console.log('cross-domain >   🔴 Error while fetch user data: ' + error); }
-        return {};
-      });
   }
 }
