@@ -154,7 +154,6 @@ When logs are enabled, the following success and status messages may appear in t
 | | `[event_name] > 🟢 Main library loaded from: [URL]` | The Nameless Analytics core library was successfully injected and loaded |
 | Consent | `[event_name] > 🟢 analytics_storage granted` | Tracking is allowed by Google Consent Mode |
 | Events | `[event_name] > 🟢 Valid [event_name]` | The event was successfully built and validated |
-| | `[event_name] > 🟢 Request claimed successfully` | The event was successfully sent to the server-side endpoint |
 | Cross-domain | `cross-domain > 🟢 Valid user data. Cross-domain URL link decoration will be applied` | Success log for `na_id` link decoration |
 
 
@@ -169,15 +168,15 @@ These messages appear in the browser console when an issue prevents the correct 
 | | `[event_name] > 🔴 Permission denied: unable to load Main library from [URL]` | The GTM Sandbox is blocking the external script loading | Ensure the library URL is added to the "Inject Scripts" permission in the template |
 | | `[event_name] > 🔴 Permission denied: unable to load UA parser library from [URL]` | The GTM Sandbox is blocking the external script loading | Ensure the library URL is added to the "Inject Scripts" permission in the template |
 | Consent | `[event_name] > 🔴 Google Consent Mode not found` | The tag expects GCM to be active, but it's not initialized on the page | Ensure GCM is correctly implemented on the site before GTM loads |
-| | `[event_name] > 🔴 analytics_storage denied` | Tracking is blocked by Google Consent Mode | This is expected behavior for users who opt-out. No action needed unless it's blocking your own tests |
-| Events | `[event_name] > 🔴 Request aborted` | A generic issue (like missing libraries or denied consent) stopped the tag execution | Check the previous logs in the console to find the specific cause |
-| | `[event_name] > 🔴 [event_name] fired on wrong event: [name]` | The trigger is firing the tag on an unexpected GTM event | Adjust the tag trigger to match the intended event (e.g., use `gtm.js` for page_view) |
+| | `[event_name] > 🔴 analytics_storage denied` | Tracking is blocked by Google Consent Mode | This is expected behavior for users who opt-out |
+| Events | `[event_name] > 🔴 Request aborted` | A generic issue stopped the tag execution | Check the previous logs in the console to find the specific cause |
+| | `Page view / Virtual page view > 🔴 Page view / Virtual page view fired on wrong event: [name]` | The trigger is firing the Page view / Virtual page view tag on wrong dataLayer event name | Adjust the tag trigger to match the intended event (e.g., use `gtm.js` for page_view) |
 | | `[event_name] > 🔴 Event fired before a page view event. The first event on a page view ever must be page_view. Request aborted` | Sequence error: an event was triggered before a `page_view` initialized the session | Reorder your triggers to ensure `page_view` always fires first |
 | | `[event_name] > 🔴 Request refused` | The server rejected the request | Check the server-side tag logs for more details |
-| | `[event_name] > 🔴 This website is not authorized to send Nameless Analytics requests` | The calling domain is not in the server-side authorized list | Add your domain to the "Authorized domains" list in the Server-side Client Tag |
-| | `[event_name] > 🔴 Error while fetch: [URL]` | The fetch request to the server-side endpoint failed | Check server logs, endpoint URL correctness, and CORS settings |
-| Cross-domain | `cross-domain > 🔴 Invalid user data. No cross-domain URL link decoration will be applied` | Data required for link decoration (na_id) is missing or invalid | Ensure `page_view` has fired successfully and cookies are correctly set |
-| | `cross-domain > 🔴 Error while fetch user data: [error]` | The cross-domain listener failed to retrieve IDs from the server | Verify the server-side client is reachable and not returning errors |
+| | `[event_name] > 🔴 [error]` | A generic JavaScript error occurred during the fetch request | Check the browser console for details |
+| | `[event_name] > 🔴 Request not sent successfully` | The network request failed | Check your internet connection and the server-side endpoint status |
+| Cross-domain | `cross-domain > 🔴 Error while fetch user data: [error]` | The cross-domain listener failed to retrieve IDs from the server | Verify the server-side client is reachable |
+
 
 ---
 

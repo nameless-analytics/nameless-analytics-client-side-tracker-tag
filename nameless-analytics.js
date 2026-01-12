@@ -221,7 +221,7 @@ function set_cross_domain_listener(full_endpoint, cross_domain_domains, respect_
           popupWindow = window.open("about:blank", "_blank");
         }
 
-        get_user_data(saved_full_endpoint, { event_name: 'get_user_data', event_origin: 'Website' })
+        get_user_data(saved_full_endpoint, { event_name: 'get_user_data', event_origin: 'Website' }, enable_logs)
           .then(response_json => {
             if (enable_logs) { console.log('cross-domain > NAMELESS ANALYTICS'); }
             if (enable_logs) { console.log('cross-domain > ASK USER DATA'); }
@@ -234,7 +234,7 @@ function set_cross_domain_listener(full_endpoint, cross_domain_domains, respect_
             const client_id = user_data.client_id;
             const session_id = user_data.session_id;
 
-            if (client_id && client_id != 'undefined' && session_id && session_id != 'undefined') {
+            if (session_id && session_id != 'undefined') {
               if (enable_logs) { console.log('cross-domain >   🟢 Valid user data. Cross-domain URL link decoration will be applied') }
               link_url.searchParams.set('na_id', session_id);
             } else {
@@ -300,7 +300,7 @@ function get_last_consent_values() {
 
 // USER DATA
 // Get user data from GTM Server-side
-function get_user_data(saved_full_endpoint, payload) {
+function get_user_data(saved_full_endpoint, payload, enable_logs) {
   if (saved_full_endpoint.split('/')[2].split('.')[1] !== 'undefined') {
     return fetch(saved_full_endpoint, {
       method: 'POST',
