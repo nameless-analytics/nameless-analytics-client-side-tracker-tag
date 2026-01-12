@@ -7,23 +7,24 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 ## Table of Contents
-* [Nameless Analytics Client-side Tracker Tag UI](#nameless-analytics-client-side-tracker-tag-ui)
-* [Event data](#event-data)
-  * [Event name](#event-name)
-    * [Standard event name](#standard-event-name)
-    * [Custom event name](#custom-event-name)
-  * [Event parameters](#event-parameters)
-    * [Add/override event level parameters](#addoverride-event-level-parameters)
-    * [Remove event level parameters](#remove-event-level-parameters)
-    * [Add event level parameters from dataLayer](#add-event-parameters-from-datalayer)
-* [Configuration variable settings](#configuration-variable-settings)
-  * [Configuration variable](#configuration-variable)
-* [Advanced settings](#advanced-settings)
-  * [Add ecommerce data from dataLayer](#add-ecommerce-data-from-datalayer)
-  * [Disable logs in JavaScript console for this event](#disable-logs-in-javascript-console-for-this-event)
-* [Execution messages](#execution-messages)
-  * [Success messages](#success-messages) 
-  * [Error messages](#error-messages) 
+- [Nameless Analytics Client-side Tracker Tag UI](#nameless-analytics-client-side-tracker-tag-ui)
+- [Event data](#event-data)
+  - [Event name](#event-name)
+    - [Standard event name](#standard-event-name)
+    - [Custom event name](#custom-event-name)
+  - [Event parameters](#event-parameters)
+    - [Add/override event level parameters](#addoverride-event-level-parameters)
+    - [Remove event level parameters](#remove-event-level-parameters)
+    - [Add event parameters from dataLayer](#add-event-parameters-from-datalayer)
+- [Configuration variable settings](#configuration-variable-settings)
+  - [Configuration variable](#configuration-variable)
+- [Advanced settings](#advanced-settings)
+  - [Add ecommerce data from dataLayer](#add-ecommerce-data-from-datalayer)
+  - [Disable logs in JavaScript console for this event](#disable-logs-in-javascript-console-for-this-event)
+- [Execution messages](#execution-messages)
+  - [Success messages](#success-messages)
+  - [Error messages](#error-messages)
+
 
 
 
@@ -108,7 +109,7 @@ These parameters can be overridden by:
 
 
 ## Configuration variable settings
-### Configuration Variable
+### Configuration variable
 The Nameless Analytics Client-side Tracker Tag inherits configuration settings from [Nameless Analytics Client-side Tracker Configuration Variable](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/). 
 
 This variable will handle settings like:

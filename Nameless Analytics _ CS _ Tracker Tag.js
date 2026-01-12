@@ -16,7 +16,6 @@ const copyFromDataLayer = require('copyFromDataLayer');
 const copyFromWindow = require('copyFromWindow');
 const Object = require('Object');
 const generateRandom = require('generateRandom');
-const addEventCallback = require('addEventCallback');
 
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------
