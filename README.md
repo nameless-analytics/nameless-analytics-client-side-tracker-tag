@@ -8,6 +8,8 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 
+</br>
+
 ## Table of Contents
 - [Nameless Analytics Client-side Tracker Tag UI](#nameless-analytics-client-side-tracker-tag-ui)
 - [Event data](#event-data)
@@ -29,12 +31,16 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 
+</br>
+
 ## Nameless Analytics Client-side Tracker Tag UI
 This is the UI of the Nameless Analytics Client-side Tracker Tag.
 
 ![Nameless Analytics Client-side Tracker Tag UI](https://github.com/user-attachments/assets/30449ace-ae5d-4b1d-9b82-4af0a535ac18)
 
 
+
+</br>
 
 ## Event data
 ### Event name
@@ -44,6 +50,9 @@ Please note:
 - Always trigger a `page_view` event as the very first event on every page load. **Any event triggered before a `page_view` will be rejected.**
 - Use standard event names whenever possible.
 - Follow naming conventions for event names and event parameters.
+
+
+</br>
 
 #### Standard event name
 Choose a standard event name for the event:
@@ -56,6 +65,9 @@ Choose a standard event name for the event:
   * time_to_dom_complete: `performance.timing.domComplete - performance.timing.responseStart`
   * total_page_load_time: `performance.timing.loadEventEnd - performance.timing.navigationStart` 
 * page_closed: Send this event when a page is closed to improve the accuracy of `time_on_page`, `session_duration`, and other metrics.
+
+
+</br>
 
 #### Custom event name
 Choose a custom event name for the event.
@@ -73,6 +85,8 @@ Avoid
 * CamelCase: ButtonClicked
 
 
+#
+
 ### Event parameters
 Add event parameters for a specific event. The parameters will be added in the event_data object in the payload. 
 
@@ -81,6 +95,9 @@ Please note: if a parameter has the same name as another, it can override or be 
 This is the hierarchy of event parameter importance: 
 
 See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
+
+
+</br>
 
 #### Add/override event level parameters
 Add or overwrite parameters for a specific event. Accepted values: strings, integers, floats, and JSON.
@@ -93,8 +110,14 @@ These parameters can override:
 These parameters can be overridden by:
 - Event parameter added in Nameless Analytics Server-side Client Tag
 
+
+</br>
+
 #### Remove event level parameters
 Remove event level parameters in event_data object in the payload.
+
+
+</br>
 
 #### Add event parameters from dataLayer
 Retrieve current dataLayer values from the dataLayer.push() event that triggered the tag.
@@ -108,6 +131,8 @@ These parameters can be overridden by:
 - Shared event parameters added in Nameless Analytics Client-side Tracker Configuration Variable
 
 
+
+</br>
 
 ## Configuration variable settings
 ### Configuration variable
@@ -128,6 +153,8 @@ This variable will handle settings like:
 
 
 
+</br>
+
 ## Advanced settings
 ### Add ecommerce data from dataLayer
 Add ecommerce data as a JSON object inside the ecommerce field.
@@ -137,10 +164,14 @@ Please note:
 - The data model can be customized to support any ecommerce data structure by modifying the relative JSON paths in the user, session, ecommerce, product and funnels table function queries
 
 
+#
+
 ### Disable logs in JavaScript console for this event
 Disable console log for this specific event when [Enable logs in JavaScript console](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#enable-logs-in-javascript-console) is enabled in the Nameless Analytics Client-side Tracker Configuration Variable. 
 
 
+
+</br>
 
 ## Execution messages
 ### Success messages
@@ -155,6 +186,8 @@ When logs are enabled, the following success and status messages may appear in t
 | Events | `[event_name] > 🟢 Valid [event_name]` | The event was successfully built and validated |
 | Cross-domain | `cross-domain > 🟢 Valid user data. Cross-domain URL link decoration will be applied` | Success log for `na_id` link decoration |
 
+
+#
 
 ### Error messages
 These messages appear in the browser console when an issue prevents the correct execution of the tag:
@@ -176,6 +209,9 @@ These messages appear in the browser console when an issue prevents the correct 
 | | `[event_name] > 🔴 Request not sent successfully` | The network request failed | Check your internet connection and the server-side endpoint status |
 | Cross-domain | `cross-domain > 🔴 Error while fetch user data: [error]` | The cross-domain listener failed to retrieve IDs from the server | Verify the server-side client is reachable |
 
+
+
+</br>
 
 ---
 
