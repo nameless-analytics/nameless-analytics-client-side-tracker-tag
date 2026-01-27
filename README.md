@@ -1,6 +1,6 @@
 # Nameless Analytics | Client-side Tracker Tag
 
-The Nameless Analytics Client-side Tracker Tag is a highly customizable GTM custom template designed to send requests to the [Nameless Analytics Server-side Client Tag](https://github.com/nameless-analytics/nameless-analytics-server-side-client-tag). 
+The Nameless Analytics Client-side Tracker Tag is a highly customizable GTM custom template designed to send requests to the [Nameless Analytics Server-side Client Tag](https://github.com/nameless-analytics/server-side-client-tag). 
 
 For an overview of how Nameless Analytics works [start from here](https://github.com/nameless-analytics/nameless-analytics/#high-level-data-flow).
 
@@ -9,7 +9,7 @@ For an overview of how Nameless Analytics works [start from here](https://github
 
 
 ## Table of Contents
-- [Nameless Analytics Client-side Tracker Tag UI](#nameless-analytics-client-side-tracker-tag-ui)
+- [Nameless Analytics Client-side Tracker Tag UI](#client-side-tracker-tag-ui)
 - [Event data](#event-data)
   - [Event name](#event-name)
     - [Standard event name](#standard-event-name)
@@ -113,20 +113,20 @@ These parameters can be overridden by:
 
 ## Configuration variable settings
 ### Configuration variable
-The Nameless Analytics Client-side Tracker Tag inherits configuration settings from [Nameless Analytics Client-side Tracker Configuration Variable](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/). 
+The Nameless Analytics Client-side Tracker Tag inherits configuration settings from [Nameless Analytics Client-side Tracker Configuration Variable](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/). 
 
 This variable will handle settings like:
-- [set user level parameters](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#user-parameters)
-- [set session level parameters](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#session-parameters)
-- [set page level parameters](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#page-parameters)
-- [set common event parameters](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#event-parameters)
-- [set server-side endpoint settings](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#server-side-endpoint-settings)
-- [set page view settings](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#page-view-settings)
-- [respect google consent mode](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#respect-google-consent-mode)
-- [enable cross-domain tracking](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#enable-cross-domain-tracking)
-- [load javascript libraries in first-party mode](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#load-javascript-libraries-in-first-party-mode)
-- [add current dataLayer state](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#add-current-datalayer-state)
-- [enable logs in javascript console](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#enable-logs-in-javascript-console)
+- [set user level parameters](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#user-parameters)
+- [set session level parameters](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#session-parameters)
+- [set page level parameters](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#page-parameters)
+- [set common event parameters](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#event-parameters)
+- [set server-side endpoint settings](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#server-side-endpoint-settings)
+- [set page view settings](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#page-view-settings)
+- [respect google consent mode](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#respect-google-consent-mode)
+- [enable cross-domain tracking](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#enable-cross-domain-tracking)
+- [load javascript libraries in first-party mode](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#load-javascript-libraries-in-first-party-mode)
+- [add current dataLayer state](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#add-current-datalayer-state)
+- [enable logs in javascript console](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#enable-logs-in-javascript-console)
 
 
 
@@ -140,12 +140,12 @@ Please note:
 
 
 ### Disable logs in JavaScript console for this event
-Disable console log for this specific event when [Enable logs in JavaScript console](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#enable-logs-in-javascript-console) is enabled in the Nameless Analytics Client-side Tracker Configuration Variable. 
+Disable console log for this specific event when [Enable logs in JavaScript console](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#enable-logs-in-javascript-console) is enabled in the Nameless Analytics Client-side Tracker Configuration Variable. 
 
 
 
 ## Verifying the setup
-When logs are enabled in the [Nameless Analytics Client-side Tracker Configuration Variable](https://github.com/nameless-analytics/nameless-analytics-client-side-tracker-configuration-variable/#enable-logs-in-javascript-console), you can verify that the tag is working correctly by checking the browser console.
+When logs are enabled in the [Nameless Analytics Client-side Tracker Configuration Variable](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#enable-logs-in-javascript-console), you can verify that the tag is working correctly by checking the browser console.
 
 The following success and status messages indicate a correct implementation:
 
