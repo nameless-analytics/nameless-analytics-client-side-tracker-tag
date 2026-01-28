@@ -399,32 +399,33 @@ function build_payload() {
     const current_event_pushes = datalayer.filter(item => item.event === datalayer_event_name);
     const last_current_event_push = current_event_pushes.length > 0 ? current_event_pushes[current_event_pushes.length - 1] : null;
 
-    // aggiungere chiavi da ignorare lato dataLayer
-    // event_type 
-    // channel_grouping 
-    // source 
-    // tld_source
-    // campaign 
-    // campaign_id
-    // campaign_click_id
-    // campaign_term 
-    // campaign_content 
-    // user_agent 
-    // browser_name 
-    // browser_language 
-    // browser_version 
-    // device_type 
-    // device_vendor 
-    // device_model 
-    // os_name 
-    // os_version 
-    // screen_size 
-    // viewport_size
-    // city
-    // country
-    
-    for (var key of Object.keys(last_current_event_push)) {
-      if (key != 'event' && key != 'gtm.start' && key != 'gtm.uniqueEventId' && key != 'ecommerce' && key != 'source' && key != 'campaign' && key != 'campaign_id' && key != 'campaign_term' && key != 'campaign_content') {
+    for (var key of Object.keys(last_current_event_push)) {if (
+      key != 'event' 
+      && key != 'gtm.start' 
+      && key != 'gtm.uniqueEventId' 
+      && key != 'ecommerce' 
+      && key != 'event_type' 
+      && key != 'channel_grouping' 
+      && key != 'source' 
+      && key != 'tld_source' 
+      && key != 'campaign' 
+      && key != 'campaign_id' 
+      && key != 'campaign_click_id' 
+      && key != 'campaign_term' 
+      && key != 'campaign_content' 
+      && key != 'user_agent' 
+      && key != 'browser_name' 
+      && key != 'browser_language' 
+      && key != 'browser_version' 
+      && key != 'device_type' 
+      && key != 'device_vendor' 
+      && key != 'device_model' 
+      && key != 'os_name' 
+      && key != 'os_version' 
+      && key != 'screen_size' 
+      && key != 'viewport_size' 
+      && key != 'city' 
+      && key != 'country') {
         event_info[key] = last_current_event_push[key];
       }
     }
