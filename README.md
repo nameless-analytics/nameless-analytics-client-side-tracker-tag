@@ -56,10 +56,10 @@ Choose a standard event name for the event:
 * page_load_time: Send this event when a page is loaded (on the `gtm.load` JavaScript event)
 * page_closed: Send this event when a page is closed to improve the accuracy of `time_on_page`, `session_duration`, and other metrics
 * view_search_results: Send this event when a search results page is viewed
-* click_search_result: Send this event when a search result is clicked
+* select_search_result: Send this event when a search result is clicked
 * login: Send this event when a user logs in
 * logout: Send this event when a user logs out
-* register: Send this event when a user creates an account
+* sign_up: Send this event when a user creates an account
 
 #### Custom event name
 Choose a custom event name for the event.
@@ -97,8 +97,50 @@ These parameters can override:
 These parameters can be overridden by:
 - Event parameter added in Nameless Analytics Server-side Client Tag
 
+These parameters can't be added or overridden:
+- event_type 
+- channel_grouping 
+- source 
+- campaign 
+- campaign_id
+- campaign_click_id
+- campaign_term 
+- campaign_content 
+- user_agent 
+- browser_name 
+- browser_language 
+- browser_version 
+- device_type 
+- device_vendor 
+- device_model 
+- os_name 
+- os_version 
+- screen_size 
+- viewport_size
+
 #### Remove event level parameters
 Remove event level parameters in event_data object in the payload.
+
+These parameters can't be removed:
+- event_type 
+- channel_grouping 
+- source 
+- campaign 
+- campaign_id
+- campaign_click_id
+- campaign_term 
+- campaign_content 
+- user_agent 
+- browser_name 
+- browser_language 
+- browser_version 
+- device_type 
+- device_vendor 
+- device_model 
+- os_name 
+- os_version 
+- screen_size 
+- viewport_size
 
 #### Add event parameters from dataLayer
 Retrieve current dataLayer values from the dataLayer.push() event that triggered the tag.
@@ -110,6 +152,27 @@ These parameters can be overridden by:
 - Event parameters added in Nameless Analytics Server-side Client Tag
 - Event parameters added in Nameless Analytics Client-side Tracker Tag
 - Shared event parameters added in Nameless Analytics Client-side Tracker Configuration Variable
+
+These parameters can't be added via datalayer:
+- event_type 
+- channel_grouping 
+- source 
+- campaign 
+- campaign_id
+- campaign_click_id
+- campaign_term 
+- campaign_content 
+- user_agent 
+- browser_name 
+- browser_language 
+- browser_version 
+- device_type 
+- device_vendor 
+- device_model 
+- os_name 
+- os_version 
+- screen_size 
+- viewport_size
 
 ## Configuration variable settings
 ### Configuration variable
