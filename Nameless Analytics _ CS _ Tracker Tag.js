@@ -400,7 +400,7 @@ function build_payload() {
     const last_current_event_push = current_event_pushes.length > 0 ? current_event_pushes[current_event_pushes.length - 1] : null;
 
     for (var key of Object.keys(last_current_event_push)) {if (
-      key != 'event' 
+      key != 'event'
       && key != 'gtm.start' 
       && key != 'gtm.uniqueEventId' 
       && key != 'ecommerce' 
@@ -551,7 +551,7 @@ function set_event_data_in_template_storage(storage_name, storage_value) {
     }];
 
     // Override page data for virtual page view
-    if (config.page_title != undefined && config.page_location != undefined) {
+    if (config.override_page_data_params && config.page_title != undefined && config.page_location != undefined) {
       event_info[1].page_title = config.page_title;
       event_info[1].page_location = config.page_location;
       event_info[1].page_fragment = config.page_fragment || null;
