@@ -78,11 +78,9 @@ Avoid:
 
 
 ### Event parameters
-Add, override or remove event parameters in the event_data object. 
+Add, override or remove event parameters in the event_data object. See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 This is the hierarchy of event parameter importance:
-
-See [Parameter Hierarchy & Overriding](https://github.com/nameless-analytics/nameless-analytics/#parameter-hierarchy--overriding) in the main project documentation.
 
 These event parameters are reserved and can't be modified:
 - event_type 
