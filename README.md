@@ -136,7 +136,7 @@ This variable will handle settings like:
 - [set common event parameters](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#event-parameters)
 - [set server-side endpoint settings](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#server-side-endpoint-settings)
 - [respect google consent mode](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#respect-google-consent-mode)
-- [override default acquisition parameters]
+- [override default acquisition parameters](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#override-default-acquisition-parameters)
 - [enable cross-domain tracking](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#enable-cross-domain-tracking)
 - [load JavaScript libraries in first-party mode](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#load-javascript-libraries-in-first-party-mode)
 - [add current dataLayer state](https://github.com/nameless-analytics/client-side-tracker-configuration-variable/#add-current-datalayer-state)
@@ -150,7 +150,7 @@ Add ecommerce data as a JSON object inside the ecommerce field.
 
 Please note: 
 - By default, the table function queries extract data from standard GA4 ecommerce data structure
-- The data model can be customized to support any ecommerce data structure by modifying the relative JSON paths in the user, session, ecommerce, product and funnels table function queries
+- The data model can be customized to support any ecommerce data structure by modifying the relative JSON paths in the user, session, ecommerce, product and funnels [table function queries](https://github.com/nameless-analytics/tables/blob/main/table-functions/)
 
 
 ### Disable logs in JavaScript console for this event
