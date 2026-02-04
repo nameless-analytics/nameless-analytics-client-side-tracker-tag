@@ -35,7 +35,7 @@ It provides a structured interface to configure event names, manage deep paramet
 
 This is the UI of the Nameless Analytics Client-side Tracker Tag.
 
-![Nameless Analytics Client-side Tracker Tag UI](https://github.com/user-attachments/assets/30449ace-ae5d-4b1d-9b82-4af0a535ac18)
+![Nameless Analytics Client-side Tracker Tag UI](https://github.com/user-attachments/assets/84e73a78-e64c-46f6-b952-b1659d22afcd)
 
 
 
